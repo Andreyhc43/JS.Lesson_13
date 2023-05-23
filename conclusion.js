@@ -1,25 +1,42 @@
 const jsonData = [
-    {
-        "first" : {
-            img : "photo.jpg",
-            name : "firstName",   
-            description: "firstDesc",   
-            price : 200,   
+        {
+            img : "img/second_page/img_1.jpg",
+            name : "ELLERY X M'O CAPSULE",   
+            description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",   
+            price : 52,   
             link : "#"
         },
 
-        "second" : {
-            img : "photo.jpg",
-            name : "secondName",   
-            description: "secondDesc",   
-            price : 200   
-        }
-    }
+       {
+            img : "img/second_page/img_2.png",
+            name : "ELLERY X M'O CAPSULE",   
+            description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",   
+            price : 52 ,
+            link : "#" 
+        },
+    
+        {
+            img : "img/second_page/img_3.png",
+            name : "ELLERY X M'O CAPSULE",   
+            description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",   
+            price : 52 ,
+            link : "#" 
+        },
+        {
+            img : "img/second_page/img_4.png",
+            name : "ELLERY X M'O CAPSULE",   
+            description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",   
+            price : 52 ,
+            link : "#" 
+        } 
 ]
+       
+
+fillTemplateProducts(jsonData)
         
-        
-    jsonData.forEach(element => {
-            // шаблон
+function fillTemplateProducts(obj){
+    obj.forEach(element => {
+            
         const myProductBox = document.querySelector('.myProductBox');
         
         const productElement = document.createElement('div');
@@ -56,3 +73,6 @@ const jsonData = [
         productContent.appendChild(productLink);
         productContent.appendChild(productPrice);
         });
+    }
+
+
