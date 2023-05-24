@@ -3,7 +3,7 @@ const jsonData = [
             img : "img/second_page/img_1.jpg",
             name : "ELLERY X M'O CAPSULE",   
             description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",   
-            price : "$ 52.00",   
+            price : "$ 51.00",   
             link : "#"
         },
 
@@ -19,31 +19,33 @@ const jsonData = [
             img : "img/second_page/img_3.png",
             name : "ELLERY X M'O CAPSULE",   
             description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",   
-            price : "$ 52.00" ,
+            price : "$ 53.00" ,
             link : "#" 
         },
         {
             img : "img/second_page/img_4.png",
             name : "ELLERY X M'O CAPSULE",   
             description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",   
-            price : "$ 52.00" ,
+            price : "$ 54.00" ,
             link : "#" 
         },
         {
             img : "img/second_page/img_5.png",
             name : "ELLERY X M'O CAPSULE",   
             description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",   
-            price : "$ 52.00" ,
+            price : "$ 55.00" ,
             link : "#" 
         }
 
 ]
        
+const jsonCartItems = []
 
-fillTemplateProducts(jsonData)
-        
-function fillTemplateProducts(obj){
-    obj.forEach(element => {
+
+
+// функция формирования блока Fetured Items
+function fillTemplateProducts(objData){
+    objData.forEach(element => {
             
         const myProductBox = document.querySelector('.second_products');
         
@@ -60,6 +62,13 @@ function fillTemplateProducts(obj){
         productIMG.classList.add('second_products_img');
         productIMG.setAttribute('alt','photo');
         productIMG.src = element.img;
+
+        // !!! переназначить событие на кнопку
+        productIMG.addEventListener('click', (e)=> {
+            jsonCartItems.push(element)
+            // console.log(element.price)
+        },true)
+
 
         const descriptionDiv = document.createElement('div');
         descriptionDiv.classList.add('second_products_item_description');
@@ -107,11 +116,19 @@ function fillTemplateProducts(obj){
     });
 }
 
-const eventImg = document.querySelector(".second_products_item");
+// функция формирования блока CardItems
 
-eventImg.onclick = function(){
-    alert('llsdkf')
+function fillTemplateCardItems(objData){
+    const cardItemsBox = document.querySelector(".cart_items")
+    const cardItem = document.createElement('div');
+
+
+    cardItemsBox.appendChild(cardItem);
+    
 }
+
+
+
 
 
 

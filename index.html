@@ -106,19 +106,19 @@
             
             <!-- Блок для шаблона товаров -->
 
-            <div class="second_products">
-
-                <div class="second_products_item ">
-                    <div class="product_img ">
-                        <img src="img/second_page/img_1.jpg" class="second_products_img" alt="img_1">
+            <div class="second_products">               <!-- myProductBox -->
+                
+                <div class="second_products_item ">     <!-- productElement -->
+                    <div class="product_img ">          <!-- imgDiv -->
+                        <img src="img/second_page/img_1.jpg" class="second_products_img" alt="img_1">                    <!-- productIMG -->
                     </div>
-                    <div class="second_products_item_description">
-                        <h2>ELLERY X M'O CAPSULE</h2>
+                    <div class="second_products_item_description">    <!-- descriptionDiv -->
+                        <h2>ELLERY X M'O CAPSULE</h2>     <!-- descriptionH2 -->
                         <p class="second_products_item_description_subtitle">Known for her sculptural takes on
                             traditional
                             tailoring, Australian arbiter of cool Kym
-                            Ellery teams up with Moda Operandi.</p>
-                        <p class="second_products_item_description_price">$52.00</p>
+                            Ellery teams up with Moda Operandi.</p> <!--  descriptionPF -->
+                        <p class="second_products_item_description_price">$2.00</p> <!-- descriptionPS -->
                     </div>
                     <div>
                         <svg class="product_img_svg" width="360" height="420" viewBox="0 0 360 420" fill="none"
@@ -142,20 +142,14 @@
                         </svg>
 
 
-                    </div>
+                    </div> <!-- descriptionDivSVG -->
                 </div>
-
-
-
-                
 
             </div>
 
             <div class="second_button">
                 <button  class="second_button_browse"><a  href="catalog/index.html">Browse All Product</a> </button>
             </div>
-
-
 
         </section>
 
@@ -200,9 +194,17 @@
             </header>
 
 
-            <!-- Блок для добавленных товаров -->
-            <div>
+            <!-- Блок для шаблона товаров -->
 
+            <div class="cart_items">
+       
+                <style>
+                    .cart_items{
+                        border: 1px solid black;
+                        height: 1000px;
+                        background-color: aliceblue;
+                    }
+                </style>
             </div>
 
 
@@ -312,21 +314,7 @@
 
 
 
-    <!-- Блок для шаблона товаров -->
-
-    <div class="myProductBox">
-        <div class="myProduct">
-        
-            <img class="myProduct_img" src="photo.jpg" alt="photo">            
-            <div class="myProduct_content">
-                <a class="myProduct_content_name" href="#">Ссылка на продукт</a>
-                <p class="myProduct_content_description">Lorem ipsum dolor sit amet.</p>
-                <p class="myProduct_content_price">3</p>
-            </div>
-
-        </div>
-
-    </div>
+    
 
 
 
@@ -357,6 +345,7 @@
 </body>
 <script src="json.js"></script>
 <script src="conclusion.js"></script>
+<script src="controller.js"></script>
 
 
 </html>
