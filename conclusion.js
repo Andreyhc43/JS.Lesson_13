@@ -38,7 +38,6 @@ const jsonData = [
             price : "$ 55.00" ,
             link : "#" 
         }
-
 ]
        
 const jsonCartItems = []
@@ -135,7 +134,6 @@ function fillTemplateCardItems(objData){
 
     // cartItemsBox.removeChild(varRemove)
 
-    
     objData.forEach(element => {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart_item')
@@ -157,16 +155,6 @@ function fillTemplateCardItems(objData){
         cartItemIMG.src = element.img;
         cartItemIMG.style.height = "100%"
         cartItemDivIMG.appendChild(cartItemIMG);
-
-        
-        // const cartItemDivDescription = document.createElement('div');
-        // cartItemDivDescription.classList.add('.cart_item_description');
-        // cartItemDivDescription.style.width = "390px";
-        // cartItemDivDescription.style.height = "80px";
-        // cartItemDivDescription.style.display = "flex"
-        // cartItem.appendChild(cartItemDivDescription);
-
-
         
         const cartItemDivDescriptionBlock = document.createElement('div');
         cartItemDivDescriptionBlock.classList.add('description_block');
@@ -181,8 +169,6 @@ function fillTemplateCardItems(objData){
 
         cartItemDivDescriptionBlock.appendChild(cartItemDescription);
 
-
-        
         
         const cartItemDivDescriptionDetail = document.createElement('div');
         cartItemDivDescriptionDetail.style.marginTop = "50px"
@@ -223,27 +209,17 @@ function fillTemplateCardItems(objData){
         cartItemButton.addEventListener('click', (e)=> {
 
             console.log(element.img)
-            console.log(jsonCartItems.element +"этот элемент должен удалиться")
-
+            console.log("этот элемент должен удалиться")
             
+            const index = jsonCartItems.indexOf(element);
+            console.log(index)
+            
+            delete jsonCartItems[index]
 
-
-
-
-
-
-
-            // jsonCartItems.filter(function(f){return f != element})
-        //     // fillTemplateCardItems(jsonCartItems)
+            fillTemplateCardItems(objData)
         })
-
-                                      
     });
-
-
-
 }
-
 
 
 // функция полной очистки блока
@@ -258,5 +234,9 @@ function removeBlock(){
         }
 }
 
+// функция удаления элемента из массива jsonCartItems
 
+function removeElementArray(){
+
+}
 
