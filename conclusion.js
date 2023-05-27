@@ -4,7 +4,9 @@ const jsonData = [
             name : "ELLERY X M'O CAPSULE",   
             description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",   
             price : "$ 51.00",   
-            link : "#"
+            link : "#",
+            color : "black",
+            size : "L"
         },
 
        {
@@ -66,6 +68,11 @@ function fillTemplateProducts(objData){
         // !!! переназначить событие на кнопку
         productIMG.addEventListener('click', (e)=> {
             jsonCartItems.push(element)
+            // !!! МЕТОД ПРОВЕРЯЮЩИЙ МАССИВ НА ПОВТОРЯЮЩИЕСЯ ЭЛЕМЕНТЫ???
+            // checkRepeatedElement(jsonCartItems);
+
+
+            fillTemplateCardItems(jsonCartItems)
             // console.log(element.price)
         },true)
 
@@ -113,24 +120,143 @@ function fillTemplateProducts(objData){
         
         
         
+            fillTemplateCardItems(jsonCartItems);
     });
 }
 
 // функция формирования блока CardItems
 
 function fillTemplateCardItems(objData){
-    const cardItemsBox = document.querySelector(".cart_items")
-    const cardItem = document.createElement('div');
+    const cartItemsBox = document.querySelector(".cart_item_box")
 
+    // ПОЛНАЯ ОЧИСТКА БЛОКА
+    removeBlock()
+        
 
-    cardItemsBox.appendChild(cardItem);
+    // cartItemsBox.removeChild(varRemove)
+
     
+    objData.forEach(element => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart_item')
+        cartItem.style.height = "306px";
+        cartItem.style.width = "652px";
+        cartItem.style.display = "flex";
+        cartItem.style.border = "1px solid green"
+        cartItemsBox.appendChild(cartItem);
+
+        
+        const cartItemDivIMG = document.createElement('div');
+        cartItemDivIMG.classList.add('.cart_item_img');
+        cartItem.style.width = "262px";
+        cartItem.style.height = "306px";
+        cartItem.appendChild(cartItemDivIMG);
+
+        const cartItemIMG = document.createElement('img');
+        cartItemIMG.classList.add('card_item_img');
+        cartItemIMG.src = element.img;
+        cartItemIMG.style.height = "100%"
+        cartItemDivIMG.appendChild(cartItemIMG);
+
+        
+        // const cartItemDivDescription = document.createElement('div');
+        // cartItemDivDescription.classList.add('.cart_item_description');
+        // cartItemDivDescription.style.width = "390px";
+        // cartItemDivDescription.style.height = "80px";
+        // cartItemDivDescription.style.display = "flex"
+        // cartItem.appendChild(cartItemDivDescription);
+
+
+        
+        const cartItemDivDescriptionBlock = document.createElement('div');
+        cartItemDivDescriptionBlock.classList.add('description_block');
+        cartItemDivDescriptionBlock.style.width = "320px";
+        cartItemDivDescriptionBlock.style.border = "1px solid white";
+        cartItem.appendChild(cartItemDivDescriptionBlock);
+
+        const cartItemDescription = document.createElement('p');
+        cartItemDescription.classList.add('.cart_item_description_block_text');
+        cartItemDescription.style.width = "320px"
+        cartItemDescription.textContent = element.name;
+
+        cartItemDivDescriptionBlock.appendChild(cartItemDescription);
+
+
+        
+        
+        const cartItemDivDescriptionDetail = document.createElement('div');
+        cartItemDivDescriptionDetail.style.marginTop = "50px"
+
+        const price = document.createElement('p');
+        const color = document.createElement('p');
+        const size = document.createElement('p');
+        const quantity = document.createElement('p');
+        
+        price.textContent = "Price: " + element.price;
+        cartItemDivDescriptionDetail.appendChild(price)
+
+        color.textContent = "Color: " + element.color;
+        cartItemDivDescriptionDetail.appendChild(color);
+
+        size.textContent = "Size: " + element.size;
+        cartItemDivDescriptionDetail.appendChild(size);
+
+        quantity.textContent = "Quantity: " // добавить счетчик товаров
+        cartItemDivDescriptionDetail.appendChild(quantity);
+        
+
+        cartItemDivDescriptionBlock.appendChild(cartItemDivDescriptionDetail);
+
+
+
+        const cartItemButtonDiv = document.createElement('div');
+        cartItem.appendChild(cartItemButtonDiv);
+
+        const cartItemButton = document.createElement('button');
+        cartItem.classList.add('button_del');
+        cartItemButton.style.width = "40px";
+        cartItemButton.style.height = "40px";
+        cartItemButtonDiv.appendChild(cartItemButton);
+
+
+        
+        cartItemButton.addEventListener('click', (e)=> {
+
+            console.log(element.img)
+            console.log(jsonCartItems.element +"этот элемент должен удалиться")
+
+            
+
+
+
+
+
+
+
+            // jsonCartItems.filter(function(f){return f != element})
+        //     // fillTemplateCardItems(jsonCartItems)
+        })
+
+                                      
+    });
+
+
+
 }
 
 
 
+// функция полной очистки блока
 
+function removeBlock(){
+    const varRemove = document.querySelector('.cart_item_box')
+    let childVarRemove = varRemove.lastElementChild;
 
+        while (varRemove.firstElementChild) {
+            varRemove.removeChild(childVarRemove);
+            childVarRemove = varRemove.lastElementChild;
+        }
+}
 
 
 
